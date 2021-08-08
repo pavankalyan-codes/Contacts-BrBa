@@ -1,0 +1,45 @@
+<div class="contact-container">
+  <div class="contact-app">
+    <h1 class="fw-normal header">Contacts</h1>
+    <div class="row justify-between align-center search-bar">
+      <div class="input-search">
+        <input
+          type="text"
+          [formControl]="searchTerm"
+          placeholder="Search people"
+        />
+        <button class="icon-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <div>
+        <button class="icon-button">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row contact-list">
+      <div class="col1">
+        <div *ngFor="let contactType of contactList">
+          <h2>{{ contactType.type }}</h2>
+          <ul>
+            <li
+              class="row contact"
+              *ngFor="let contact of contactType.contacts"
+            >
+              <img [src]="contact.dp" class="dp" alt="" />
+              <span class="contact-name">{{ contact.name }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col2">
+        <ul>
+          <li *ngFor="let alphabet of alphabets">
+            {{ alphabet }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
