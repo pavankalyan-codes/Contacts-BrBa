@@ -24,6 +24,7 @@
   outline: none;
   width: 90%;
   font-size: 16px !important;
+  background: transparent;
 }
 .input-search > button > i {
   font-size: 20px;
@@ -112,6 +113,23 @@ h2 {
     height: 100%;
     width: 100%;
     border-radius: 0px;
+    background: #121647;
+    color: white;
+  }
+  .input-search > input {
+    color: white;
+  }
+  h1 {
+    color: white;
+  }
+  .input-search {
+    border: 1px solid white;
+  }
+  .icon-button > i {
+    color: white;
+  }
+  .input-search > button > i {
+    color: white;
   }
   .header {
     height: 5%;
