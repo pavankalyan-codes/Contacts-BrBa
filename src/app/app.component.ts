@@ -20,11 +20,11 @@ export class AppComponent {
       this.contacts=[this.contacts[1],this.contacts[0]];
       this.contactList=[...this.contacts];
     })
-    console.log(this.contacts);
+
   }
 
   searchContacts(data:any){
-    console.log(data);
+
     if(!data){
       this.contactList=this.contacts;
       return;
@@ -35,7 +35,7 @@ export class AppComponent {
         return contact;
       }
     })
-    console.log(matchedContacts);
+
     let updatedList=[{
       type:"Matching Contacts","contacts":matchedContacts}];
       this.contactList=updatedList;
@@ -45,13 +45,13 @@ export class AppComponent {
     let recent:any=[];
     for(let i=0;i<3;i++){
       let el:any=this.randomElement();
-      console.log(el);
+
       recent.push(el);
     }
       
     
-    this.contacts[1].contacts=recent;
-    console.log(recent);
+    this.contacts[1].contacts=[...new Set(recent)];
+
   }
 
   randomElement(){

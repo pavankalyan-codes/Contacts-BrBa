@@ -18,7 +18,15 @@
         </button>
       </div>
     </div>
-    <div class="row contact-list">
+    <div
+      *ngIf="
+        !(
+          contactList[0]?.type === 'Matching Contacts' &&
+          contactList[0]?.contacts?.length === 0
+        )
+      "
+      class="row contact-list"
+    >
       <div class="col1">
         <div *ngFor="let contactType of contactList">
           <h2>{{ contactType.type }}</h2>
@@ -28,7 +36,19 @@
               *ngFor="let contact of contactType.contacts"
             >
               <img [src]="contact.dp" class="dp" alt="" />
-              <span class="contact-name">{{ contact.name }}</span>
+              <span
+                *ngIf="contactType.type === 'Matching Contacts'"
+                appHighlightSearch
+                class="contact-name"
+                [searchTerm]="searchTerm.value"
+                [word]="contact.name"
+                >{{ contact.name }}</span
+              >
+              <span
+                *ngIf="contactType.type !== 'Matching Contacts'"
+                class="contact-name"
+                >{{ contact.name }}</span
+              >
             </li>
           </ul>
         </div>
@@ -40,6 +60,14 @@
           </li>
         </ul>
       </div>
+    </div>
+    <div
+      *ngIf="
+        contactList[0]?.type === 'Matching Contacts' &&
+        contactList[0]?.contacts?.length === 0
+      "
+    >
+      <span class="error">No Matching Contacts.</span>
     </div>
   </div>
 </div>

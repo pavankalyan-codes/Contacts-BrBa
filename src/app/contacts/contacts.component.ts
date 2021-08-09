@@ -28,12 +28,9 @@ export class ContactsComponent implements OnInit {
       });
    }
 
-  changed(data:any){
-    console.log(data);
-  }
+  
 
   ngOnInit(): void {
-    console.log(this.contactList);
   }
 
 }

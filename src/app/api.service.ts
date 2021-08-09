@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { Contact } from './contact';
 
@@ -7,13 +8,14 @@ import { Contact } from './contact';
   providedIn: 'root'
 })
 export class ApiService {
-
+  
   BASE_URL="https://breakingbadapi.com/api"
+  MOCK_API_URL="https://mocki.io/v1/c40758aa-d9de-4ba1-befe-7ab1cdcb9451"
 
   constructor(private http:HttpClient) { }
 
   getContacts(){
-    return this.http.get(`${this.BASE_URL}/characters`)
+    return this.http.get(this.MOCK_API_URL)
     .pipe(
     map((response:any) => {
         return response.map((contact:any) => {
