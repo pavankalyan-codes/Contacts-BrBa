@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ApiService } from './api.service';
-import { Contact } from './contact';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +34,6 @@ export class AppComponent {
         return contact;
       }
     })
-
     let updatedList=[{
       type:"Matching Contacts","contacts":matchedContacts}];
       this.contactList=updatedList;
@@ -45,11 +43,8 @@ export class AppComponent {
     let recent:any=[];
     for(let i=0;i<3;i++){
       let el:any=this.randomElement();
-
       recent.push(el);
     }
-      
-    
     this.contacts[1].contacts=[...new Set(recent)];
 
   }
@@ -57,10 +52,5 @@ export class AppComponent {
   randomElement(){
     let arr=this.contacts[0].contacts;
     return arr[Math.floor(Math.random() * arr.length)];
-  }
-
-
-  randomGuid(){
-
   }
 }
