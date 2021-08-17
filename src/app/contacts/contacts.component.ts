@@ -21,7 +21,7 @@ export class ContactsComponent implements OnInit {
     console.log(this.alphabets);
     this.searchTerm=new FormControl('');
     this.searchTerm.valueChanges.pipe(
-      debounceTime(500),
+     debounceTime(250),
      distinctUntilChanged())
      .subscribe(term => {
        this.emitSearch.emit(term);
